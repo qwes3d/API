@@ -21,12 +21,17 @@ app.use(bodyParser.json());
 
 
 // 👇 Root route (homepage)
+app.get("/", (req, res) => {
+  res.send("Welcome to the Contacts API. Use /contacts to access data.");
+});
 
+// Contacts routes
 app.use("/contacts", contactsRoutes);
 
-//app.get("/", (req, res) => {
-// res.send("Welcome to the Contacts API 🚀");
-//});
+// Error handling
+app.use((req, res) => {
+  res.status(404).send("Route not found");
+});
 
 console.log("Mongo URI:", process.env.MONGODB_URI);
 
