@@ -74,7 +74,7 @@ const updateContact = async (req, res) => {
   }
 };
 
-// Delete a contact
+// to Delete a contact
 const deleteContact = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
@@ -87,6 +87,7 @@ const deleteContact = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+
 };
 
 module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
