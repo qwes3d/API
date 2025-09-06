@@ -24,9 +24,9 @@ app.use(bodyParser.json());
 
 app.use("/contacts", contactsRoutes);
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Contacts API 🚀");
-});
+//app.get("/", (req, res) => {
+// res.send("Welcome to the Contacts API 🚀");
+//});
 
 console.log("Mongo URI:", process.env.MONGODB_URI);
 
