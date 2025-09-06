@@ -1,7 +1,6 @@
-
 // backend/controllers/contacts.js
 const mongodb = require("../db/connect");
-const ObjectId = require("mongodb").ObjectId;
+const { ObjectId } = require("mongodb");
 
 // Get all contacts
 const getAll = async (req, res) => {
@@ -20,11 +19,13 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().collection("contacts").find({ _id: userId });
-    result.toArray().then((lists) => {
+    const result = await mongodb.getDb().collection("contacts").findOne({ _id: userId });
+    if (result) {
       res.setHeader("Content-Type", "application/json");
-      res.status(200).json(lists[0]);
-    });
+      res.status(200).json(result);
+    } else {
+      res.status(404).json({ message: "Contact not found" });
+    }
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -62,11 +63,8 @@ const updateContact = async (req, res) => {
       favoriteColor: req.body.favoriteColor,
       birthday: req.body.birthday
     };
-    const response = await mongodb
-      .getDb()
-      .collection("contacts")
-      .replaceOne({ _id: userId }, contact);
-    if (response.modifiedCount > 0) {
+    const response = await mongodb.getDb().collection("contacts").replaceOne({ _id: userId }, contact);
+    if (response.matchedCount > 0) {
       res.status(204).send();
     } else {
       res.status(404).json({ message: "Contact not found" });
