@@ -20,10 +20,13 @@ app.use(bodyParser.json());
 //app.use(express.static(path.join(__dirname, '../frontend/public')));
 
 
+// 👇 Root route (homepage)
 
-// Routes
+app.use("/contacts", contactsRoutes);
 
-app.use('/contacts', contactsRoutes);
+app.get("/", (req, res) => {
+  res.send("Welcome to the Contacts API 🚀");
+});
 
 console.log("Mongo URI:", process.env.MONGODB_URI);
 
