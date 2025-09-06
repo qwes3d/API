@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 // 👇 Root route (homepage)
 app.get("/", (req, res) => {
-  res.send("Welcome to the Contacts API. Use /contacts to access data.");
+  res.send("Welcome to the Contacts API. ATTENTION!!!  Use /contacts to access data.");
 });
 
 // Contacts routes
