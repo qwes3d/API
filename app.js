@@ -4,8 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const swaggerUi = require('swagger-ui-express');
-const swaggerJSDoc = require('swagger-jsdoc');
-const { swaggerSpec } = require('./swagger');
+const swaggerDocument = require('./swagger.json');
 
 
 const MongoDB = require("./db/connect");
@@ -31,7 +30,8 @@ app.get("/", (req, res) => {
 
 
 // Swagger UI at /api-docs
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 
@@ -51,6 +51,8 @@ MongoDB.initDb((err, mongodb) => {
     } else {
         app.listen(port, () => {
             console.log(`✅ Connected to Db and listening on : ${port}`);
+            console.log(`📘 Swagger docs available at http://localhost:${port}/api-docs`);
+
         });
     }
 });
