@@ -1,0 +1,38 @@
+### Base
+GET http://localhost:8080/
+
+### Swagger
+GET http://localhost:8080/api-docs
+
+### Get all contacts
+GET http://localhost:8080/contacts
+
+### Create contact (POST) - all fields required
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Ada",
+  "lastName": "Lovelace",
+  "email": "ada@math.org",
+  "favoriteColor": "Teal",
+  "birthday": "1815-12-10"
+}
+
+### Get by id (paste id from POST response)
+GET http://localhost:8080/contacts/{{id}}
+
+### Update contact (PUT) - must include all fields
+PUT http://localhost:8080/contacts/{{id}}
+Content-Type: application/json
+
+{
+  "firstName": "Ada",
+  "lastName": "Lovelace",
+  "email": "ada@history.org",
+  "favoriteColor": "Purple",
+  "birthday": "1815-12-10"
+}
+
+### Delete contact
+DELETE http://localhost:8080/contacts/{{id}}

@@ -1,6 +1,20 @@
 const { ObjectId } = require('mongodb');
 const db = require('../db/connect');
 
+
+
+// Basic field validation
+function validateContact(body) {
+  const required = ['firstName', 'lastName', 'email', 'favoriteColor', 'birthday'];
+  for (const key of required) {
+    if (!body[key] || String(body[key]).trim() === '') {
+      return `Missing or empty field: ${key}`;
+    }
+  }
+  return null;
+}
+
+
 // GET all
 const getAll = async (req, res) => {
   try {

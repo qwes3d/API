@@ -3,6 +3,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const swaggerUi = require('swagger-ui-express');
+const swaggerJSDoc = require('swagger-jsdoc');
+const { swaggerSpec } = require('./swagger');
+
 
 const MongoDB = require("./db/connect");
 
@@ -24,6 +28,12 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("Welcome to the Contacts API. ATTENTION!!!  Use /contacts to access data.");
 });
+
+
+// Swagger UI at /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
 
 // Contacts routes
 app.use("/contacts", contactsRoutes);
