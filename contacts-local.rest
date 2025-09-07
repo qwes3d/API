@@ -11,11 +11,11 @@ POST http://localhost:8080/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Milo",
-  "lastName": "Brown",
-  "email": "milo@example.com",
-  "favoriteColor": "Green",
-  "birthday": "1992-05-12"
+  "firstName": "DIAMOND",
+  "lastName": "IKE",
+  "email": "WAD@example.com",
+  "favoriteColor": "BLACK",
+  "birthday": "1999-04-10"
 }
 
 ### Update a contact by _id
