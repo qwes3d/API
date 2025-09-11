@@ -14,6 +14,10 @@ const contactsRoutes = require('./routes/contactsRoutes');
 const app = express();
 const port = process.env.PORT || 8080;
 
+// Updated the servers URL in swagger.json dynamically for Render
+const BASE_URL = process.env.BASE_URL || `http://localhost:${port}`;
+swaggerDocument.servers = [{ url: BASE_URL }];
+
 app.use(bodyParser.json());
 
 
