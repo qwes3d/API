@@ -4,8 +4,16 @@ GET http://localhost:8080/
 ### Swagger UI
 GET http://localhost:8080/api-docs
 
+### OpenAPI (Swagger) JSON on render
+GET https://contactsapi-ofmk.onrender.com/api-docs
+
 ### Get all contacts
 GET http://localhost:8080/contacts
+
+### swagger Get all contacts on render
+GET https://contactsapi-ofmk.onrender.com/api-docs/contacts
+
+
 
 ### Create contact (POST) - all fields required
 POST http://localhost:8080/contacts
