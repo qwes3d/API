@@ -56,6 +56,8 @@ MongoDB.initDb((err, mongodb) => {
         app.listen(port, () => {
             console.log(`✅ Connected to Db and listening on : ${port}`);
             console.log(`📘 Swagger docs available at http://localhost:${port}/api-docs`);
+            console.log(`🌐 production URL is set to: ${BASE_URL}`);
+            console.log(`📂 swagger production at ${BASE_URL}/api-docs`);
 
         });
     }
