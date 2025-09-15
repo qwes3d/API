@@ -7,7 +7,7 @@ GET http://localhost:8080/api-docs
 ### OpenAPI (Swagger) JSON on render
 GET https://contactsapi-ofmk.onrender.com/api-docs
 
-### Get all contacts
+### Get all contact IN THE COLLECTION
 GET http://localhost:8080/contacts
 
 ### swagger Get all contacts on render
