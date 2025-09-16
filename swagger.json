@@ -6,10 +6,9 @@
     "description": "API for managing contacts (CSE341 Week 02)"
   },
   "servers": [
-    {
-      "url": "https://contactsapi-ofmk.onrender.com",
-      "description": "production server"
-    }
+      { "url": "http://localhost:8080", "description": "Local" },
+      { "url": "https://your-app-name.onrender.com", "description": "Production" }
+
   ],
   "paths": {
     "/contacts": {
